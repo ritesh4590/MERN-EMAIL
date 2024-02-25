@@ -7,13 +7,13 @@ const EmailController = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "197vikrams@gmail.com",
-        pass: "kuuv vudk badu yxem",
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
       },
     });
 
     const mailOptions = {
-      from: "197vikrams@gmail.com",
+      from: process.env.EMAIL_USERNAME,
       to: email,
       subject: "Sending mail using React and Node",
       html: "Congratulation you received mail",
